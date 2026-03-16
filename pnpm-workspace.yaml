@@ -1,4 +1,13 @@
+
+packages:
+  - test/fixtures/*
 ignoreWorkspaceRootCheck: true
+
+ignoredBuiltDependencies:
+  - esbuild
+  - vue-demi
+patchedDependencies:
+  floating-vue: patches/floating-vue.patch
 
 shamefullyHoist: true
 
@@ -9,10 +18,3 @@ trustPolicy: no-downgrade
 trustPolicyExclude:
   - chokidar@4.0.3
   - semver@6.3.1
-
-packages:
-  - test/fixtures/*
-
-ignoredBuiltDependencies:
-  - esbuild
-  - vue-demi

@@ -1,0 +1,24 @@
+diff --git a/dist/floating-vue.mjs b/dist/floating-vue.mjs
+index d54beb90f1fd341fb0aa41e1503afdbbece12cbb..8d0435f1a2a359f080a8bd3cfefecdbed9c8db8a 100644
+--- a/dist/floating-vue.mjs
++++ b/dist/floating-vue.mjs
+@@ -4,6 +4,10 @@ function ye(e, t) {
+   for (const o in t)
+     Object.prototype.hasOwnProperty.call(t, o) && (typeof t[o] == "object" && e[o] ? ye(e[o], t[o]) : e[o] = t[o]);
+ }
++let uid = 0
++function getPopperId() {
++  return `popper_${uid++}`
++}
+ const h = {
+   // Disable popper components
+   disabled: !1,
+@@ -382,7 +386,7 @@ const q = "__floating-vue__popper", Q = () => O({
+         },
+         transformOrigin: null
+       },
+-      randomId: `popper_${[Math.random(), Date.now()].map((e) => e.toString(36).substring(2, 10)).join("_")}`,
++      randomId: `popper_${getPopperId()}`,
+       shownChildren: /* @__PURE__ */ new Set(),
+       lastAutoHide: !0,
+       pendingHide: !1,
